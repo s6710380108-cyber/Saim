@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สยามดินแดนแห่งรอยยิ้ม - Siam Land of Smiles</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Prompt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Prompt', 'sans-serif'],
+                    },
+                    colors: {
+                        thRed: '#A51931',
+                        thWhite: '#F4F5F8',
+                        thBlue: '#2D2A4A',
+                        thBlueLight: '#1E3A8A',
+                        thRedAccent: '#E11D48',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        /* Thai Flag Gradient Accents */
+        .gradient-flag-bg {
+            background: linear-gradient(135deg, #1E3A8A 0%, #0F172A 50%, #A51931 100%);
+        }
+        
+        .gradient-hero-text {
+            background: linear-gradient(90deg, #FFFFFF 0%, #F3F4F6 50%, #FECDD3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gradient-card-border {
+            border-image: linear-gradient(to right, #1E3A8A, #FFFFFF, #A51931) 1;
+        }
+
+        .gradient-button {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #DC2626 100%);
+            transition: all 0.3s ease;
+        }
+        .gradient-button:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(30, 58, 138, 0.4);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dark-glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E3A8A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A51931;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between selection:bg-thRed selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md transition-all duration-300">
+        <!-- Thai Flag Top Stripe Accent -->
+        <div class="h-1.5 w-full grid grid-cols-5">
+            <div class="bg-thRed"></div>
+            <div class="bg-white"></div>
+            <div class="bg-thBlueLight"></div>
+            <div class="bg-white"></div>
+            <div class="bg-thRed"></div>
+        </div>
+
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo / Brand Title -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-900 via-blue-700 to-red-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg transform hover:rotate-12 transition-transform">
+                        🐘
+                    </div>
+                    <div>
+                        <span class="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-blue-900 via-blue-700 to-red-600 bg-clip-text text-transparent block leading-tight" id="nav-brand">
+                            สยามดินแดนแห่งรอยยิ้ม
+                        </span>
+                        <span class="text-xs text-slate-500 font-medium tracking-wider uppercase block" id="nav-tagline">Siam Land of Smiles</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8 font-medium text-slate-700">
+                    <a href="#provinces" class="hover:text-blue-700 transition-colors flex items-center gap-1">
+                        <i class="fa-solid fa-map-location-dot text-blue-600"></i>
+                        <span data-i18n="nav_provinces">77 จังหวัด</span>
+                    </a>
+                    <a href="#attractions" class="hover:text-blue-700 transition-colors flex items-center gap-1">
+                        <i class="fa-solid fa-camera text-red-500"></i>
+                        <span data-i18n="nav_attractions">สถานที่ท่องเที่ยว</span>
+                    </a>
+                    <a href="#food" class="hover:text-blue-700 transition-colors flex items-center gap-1">
+                        <i class="fa-solid fa-utensils text-blue-600"></i>
+                        <span data-i18n="nav_food">อาหารไทย</span>
+                    </a>
+                    <a href="#festivals" class="hover:text-blue-700 transition-colors flex items-center gap-1">
+                        <i class="fa-solid fa-drum text-red-500"></i>
+                        <span data-i18n="nav_festivals">เทศกาล</span>
+                    </a>
+                    <a href="#planner" class="hover:text-blue-700 transition-colors flex items-center gap-1">
+                        <i class="fa-solid fa-calendar-check text-blue-600"></i>
+                        <span data-i18n="nav_planner">วางแผนเที่ยว</span>
+                    </a>
+                </div>
+
+                <!-- Right Actions: Language Toggle & Mobile Menu Btn -->
+                <div class="flex items-center space-x-4">
+                    <!-- Language Switcher Button -->
+                    <button id="lang-toggle-btn" onclick="toggleLanguage()" class="px-4 py-2 rounded-full border-2 border-slate-200 hover:border-blue-600 font-bold text-sm bg-slate-100 hover:bg-blue-50 text-slate-800 transition-all flex items-center gap-2 shadow-sm">
+                        <span id="lang-flag" class="text-base">🇹🇭</span>
+                        <span id="lang-text">TH | EN</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu Dropdown -->
+            <div id="mobile-menu" class="hidden md:hidden pb-6 pt-2 px-2 border-t border-slate-100 bg-white/95 rounded-b-2xl shadow-xl">
+                <a href="#provinces" onclick="toggleMobileMenu()" class="block py-3 px-4 text-slate-700 font-medium hover:bg-slate-50 rounded-lg flex items-center gap-3">
+                    <i class="fa-solid fa-map-location-dot text-blue-600 w-6"></i>
+                    <span data-i18n="nav_provinces">77 จังหวัด</span>
+                </a>
+                <a href="#attractions" onclick="toggleMobileMenu()" class="block py-3 px-4 text-slate-700 font-medium hover:bg-slate-50 rounded-lg flex items-center gap-3">
+                    <i class="fa-solid fa-camera text-red-500 w-6"></i>
+                    <span data-i18n="nav_attractions">สถานที่ท่องเที่ยว</span>
+                </a>
+                <a href="#food" onclick="toggleMobileMenu()" class="block py-3 px-4 text-slate-700 font-medium hover:bg-slate-50 rounded-lg flex items-center gap-3">
+                    <i class="fa-solid fa-utensils text-blue-600 w-6"></i>
+                    <span data-i18n="nav_food">อาหารไทย</span>
+                </a>
+                <a href="#festivals" onclick="toggleMobileMenu()" class="block py-3 px-4 text-slate-700 font-medium hover:bg-slate-50 rounded-lg flex items-center gap-3">
+                    <i class="fa-solid fa-drum text-red-500 w-6"></i>
+                    <span data-i18n="nav_festivals">เทศกาล</span>
+                </a>
+                <a href="#planner" onclick="toggleMobileMenu()" class="block py-3 px-4 text-slate-700 font-medium hover:bg-slate-50 rounded-lg flex items-center gap-3">
+                    <i class="fa-solid fa-calendar-check text-blue-600 w-6"></i>
+                    <span data-i18n="nav_planner">วางแผนเที่ยว</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Banner with Dynamic Gradients & Thai Flag Motifs -->
+    <section class="relative gradient-flag-bg text-white py-20 lg:py-32 overflow-hidden shadow-2xl">
+        <!-- Decorative Background Circles -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-red-500/20 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-block py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md text-red-200 text-sm font-semibold mb-6 border border-white/20 shadow-inner" data-i18n="hero_badge">
+                ✨ ยินดีต้อนรับสู่ประเทศไทย • Welcome to Thailand
+            </span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                <span class="gradient-hero-text" data-i18n="hero_title_1">สยามดินแดนแห่งรอยยิ้ม</span>
+                <span class="block text-2xl sm:text-4xl text-blue-200 mt-2 font-medium" data-i18n="hero_subtitle">ค้นพบเสน่ห์มหัศจรรย์ทั่วทั้ง 77 จังหวัด</span>
+            </h1>
+            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-slate-200 mb-10 leading-relaxed font-light" data-i18n="hero_desc">
+                สัมผัสความสวยงามของวัฒนธรรมอันล้ำค่า ธรรมชาติระดับโลก รสชาติอาหารที่เป็นเอกลักษณ์ และประเพณีตระการตา ปักหมุดจัดทริปในแบบของคุณได้แล้ววันนี้
+            </p>
+
+            <!-- Quick Action Search Bar -->
+            <div class="max-w-2xl mx-auto bg-white/95 backdrop-blur-md p-2.5 rounded-2xl shadow-2xl flex flex-col sm:flex-row gap-2 border border-white/40">
+                <div class="relative flex-1 flex items-center">
+                    <i class="fa-solid fa-magnifying-glass text-slate-400 ml-4 text-lg"></i>
+                    <input type="text" id="hero-search-input" onkeyup="quickSearchProvince()" placeholder="พิมพ์ชื่อจังหวัด เช่น เชียงใหม่, ภูเก็ต..." class="w-full py-3 pl-3 pr-4 text-slate-800 rounded-xl focus:outline-none bg-transparent placeholder-slate-400 font-medium">
+                </div>
+                <a href="#provinces" onclick="executeHeroSearch()" class="gradient-button px-8 py-3.5 rounded-xl font-semibold text-white flex items-center justify-center gap-2 shadow-lg">
+                    <span data-i18n="hero_search_btn">ค้นหาจังหวัด</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Quick Stats Counters -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-14 text-center">
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10">
+                    <div class="text-3xl font-bold text-red-400">77</div>
+                    <div class="text-xs text-slate-300 font-light" data-i18n="stat_provinces">จังหวัดทั่วไทย</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10">
+                    <div class="text-3xl font-bold text-white">1,000+</div>
+                    <div class="text-xs text-slate-300 font-light" data-i18n="stat_attractions">สถานที่ท่องเที่ยว</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10">
+                    <div class="text-3xl font-bold text-red-400">100+</div>
+                    <div class="text-xs text-slate-300 font-light" data-i18n="stat_signature_food">เมนูซิกเนเจอร์</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10">
+                    <div class="text-3xl font-bold text-white">4</div>
+                    <div class="text-xs text-slate-300 font-light" data-i18n="stat_regions">ภูมิภาคทรงเสน่ห์</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: 77 Provinces Interactive Selector -->
+    <section id="provinces" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-red-600 bg-red-100 px-3 py-1 rounded-full inline-block mb-3" data-i18n="sec_prov_badge">EXPLORE THAILAND</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="sec_prov_title">ค้นพบไฮไลท์ & ซิกเนเจอร์ 77 จังหวัด</h2>
+            <p class="text-slate-600 mt-2 max-w-2xl mx-auto" data-i18n="sec_prov_subtitle">เลือกจังหวัดที่คุณต้องการ เพื่อดูสถานที่ท่องเที่ยวเด่น อาหารซิกเนเจอร์ และประเพณีประจำจังหวัด</p>
+        </div>
+
+        <!-- Filter Buttons by Region -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+            <button onclick="filterRegion('all')" class="region-btn active px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-blue-900 text-white shadow-md" data-region="all" data-i18n="region_all">ทั้งหมด (77)</button>
+            <button onclick="filterRegion('north')" class="region-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" data-region="north" data-i18n="region_north">ภาคเหนือ</button>
+            <button onclick="filterRegion('central')" class="region-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" data-region="central" data-i18n="region_central">ภาคกลาง & ปริมณฑล</button>
+            <button onclick="filterRegion('ne')" class="region-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" data-region="ne" data-i18n="region_ne">ภาคอีสาน</button>
+            <button onclick="filterRegion('south')" class="region-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" data-region="south" data-i18n="region_south">ภาคใต้</button>
+        </div>
+
+        <!-- Search & Quick Dropdown Box -->
+        <div class="mb-10 max-w-md mx-auto relative">
+            <label for="province-select" class="block text-xs font-bold text-slate-500 mb-1 uppercase tracking-wider text-center" data-i18n="label_select_prov">เลือกจังหวัดอย่างรวดเร็ว:</label>
+            <select id="province-select" onchange="onProvinceSelectChange(this.value)" class="w-full bg-white border-2 border-slate-200 focus:border-blue-700 rounded-xl px-4 py-3 text-slate-800 font-semibold shadow-sm focus:outline-none transition-all">
+                <option value="" data-i18n="select_prov_placeholder">-- กรุณาเลือกจังหวัด --</option>
+                <!-- Options generated by JS -->
+            </select>
+        </div>
+
+        <!-- Province Cards Grid Display -->
+        <div id="province-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic Content loaded via JS -->
+        </div>
+    </section>
+
+    <!-- SECTION 2: Top Featured Attractions -->
+    <section id="attractions" class="py-16 bg-slate-100/70 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-100 px-3 py-1 rounded-full inline-block mb-3" data-i18n="sec_att_badge">WORLD-CLASS DESTINATIONS</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="sec_att_title">สถานที่ท่องเที่ยวยอดฮิตที่คุณไม่ควรพลาด</h2>
+                <p class="text-slate-600 mt-2 max-w-2xl mx-auto" data-i18n="sec_att_subtitle">รวบรวมสุดยอดแลนด์มาร์คอันดึงดูดนักท่องเที่ยวจากทั่วทุกมุมโลก</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Highlight 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80" alt="Bangkok Temples" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-blue-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">กรุงเทพมหานคร</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors" data-i18n="att_1_title">วัดพระแก้ว & พระบรมมหาราชวัง</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4" data-i18n="att_1_desc">ศูนย์รวมจิตใจและสถาปัตยกรรมไทยอันอ่อนช้อยงดงาม วิจิตรอลังการใจกลางเมืองหลวง</p>
+                        <div class="flex items-center justify-between text-xs text-slate-500 pt-3 border-t border-slate-100">
+                            <span><i class="fa-solid fa-star text-amber-400 mr-1"></i> 4.9 (25,000+ รีวิว)</span>
+                            <span class="text-red-600 font-semibold" data-i18n="att_tag_culture">วัฒนธรรม & ประวัติศาสตร์</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlight 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?auto=format&fit=crop&w=800&q=80" alt="PP Island Phuket" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">กระบี่ / ภูเก็ต</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors" data-i18n="att_2_title">หมู่เกาะพีพี & ทะเลอันดามัน</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4" data-i18n="att_2_desc">สวรรค์แห่งท้องทะเลใสมรกต หาดทรายขาวละเอียด ละลานตาด้วยแนวปะการังและเขาหินปูน</p>
+                        <div class="flex items-center justify-between text-xs text-slate-500 pt-3 border-t border-slate-100">
+                            <span><i class="fa-solid fa-star text-amber-400 mr-1"></i> 4.8 (18,000+ รีวิว)</span>
+                            <span class="text-blue-600 font-semibold" data-i18n="att_tag_nature">ธรรมชาติ & ทะเล</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlight 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80" alt="Chiang Mai Doi Inthanon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-blue-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">เชียงใหม่</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors" data-i18n="att_3_title">ดอยอินทนนท์ & วัดพระธาตุดอยสุเทพ</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4" data-i18n="att_3_desc">สัมผัสอากาศหนาวบนยอดเขาที่สูงที่สุดในไทย พร้อมกราบไหว้สิ่งศักดิ์สิทธิ์คู่เมืองล้านนา</p>
+                        <div class="flex items-center justify-between text-xs text-slate-500 pt-3 border-t border-slate-100">
+                            <span><i class="fa-solid fa-star text-amber-400 mr-1"></i> 4.9 (21,000+ รีวิว)</span>
+                            <span class="text-emerald-600 font-semibold" data-i18n="att_tag_mountain">ภูเขา & วิวทิวทัศน์</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Signature Thai Cuisine -->
+    <section id="food" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-red-600 bg-red-100 px-3 py-1 rounded-full inline-block mb-3" data-i18n="sec_food_badge">GASTRONOMY</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="sec_food_title">สุดยอดรสชาติอาหารไทยเลื่องชื่อ</h2>
+            <p class="text-slate-600 mt-2 max-w-2xl mx-auto" data-i18n="sec_food_subtitle">สัมผัสเสน่ห์รสชาติ เผ็ด กลมกล่อม หอมสมุนไพร ที่ทั่วโลกยกย่องให้เป็นอันดับหนึ่ง</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Dish 1: Tom Yum Goong -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between">
+                <div>
+                    <!-- Tom Yum Goong Image from link -->
+                    <div class="relative h-48 overflow-hidden bg-slate-100">
+                        <img src="https://www.jmthaifood.com/wp-content/uploads/2020/01/%E0%B8%95%E0%B9%89%E0%B8%A1%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%B8%E0%B9%89%E0%B8%87-1.jpg" 
+                             alt="ต้มยำกุ้ง Tom Yum Goong" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1548943487-a2e4e43b4853?auto=format&fit=crop&w=600&q=80';"
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-red-600/90 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">
+                            🍲 Hot & Spicy
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold text-slate-900 mb-1" data-i18n="food_1_title">ต้มยำกุ้ง</h3>
+                        <span class="text-xs text-red-600 font-semibold block mb-2" data-i18n="food_1_sub">Tom Yum Goong</span>
+                        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="food_1_desc">ซุปต้มยำรสเผ็ดเปรี้ยวกลมกล่อม หอมกลิ่นข่า ตะไคร้ ใบมะกรูด พร้อมกุ้งตัวโตเนื้อเด้ง</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dish 2 -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-bl-full -z-0"></div>
+                <div class="text-4xl mb-3">🍜</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-1" data-i18n="food_2_title">ผัดไทย</h3>
+                <span class="text-xs text-blue-600 font-semibold block mb-2" data-i18n="food_2_sub">Pad Thai</span>
+                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="food_2_desc">ก๋วยเตี๋ยวเส้นจันทน์ผัดซอสมะขามเปียกรสเข้มข้น เสิร์ฟพร้อมเต้าหู้ ถั่วฝักยาว และกุ้งสด</p>
+            </div>
+
+            <!-- Dish 3 -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-bl-full -z-0"></div>
+                <div class="text-4xl mb-3">🥗</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-1" data-i18n="food_3_title">ส้มตำไทย</h3>
+                <span class="text-xs text-amber-600 font-semibold block mb-2" data-i18n="food_3_sub">Som Tum</span>
+                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="food_3_desc">สลัดมะละกอดิบสไตล์อีสาน เปรี้ยว หวาน เผ็ด แซ่บนัว โรยถั่วลิสงและกุ้งแห้งกรุบกรอบ</p>
+            </div>
+
+            <!-- Dish 4 -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 rounded-bl-full -z-0"></div>
+                <div class="text-4xl mb-3">🍛</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-1" data-i18n="food_4_title">แกงมัสมั่น</h3>
+                <span class="text-xs text-emerald-600 font-semibold block mb-2" data-i18n="food_4_sub">Massaman Curry</span>
+                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="food_4_desc">แกงกะทิเครื่องแกงเข้มข้นหอมเครื่องเทศ เมนูที่ได้รับการโหวตให้เป็นอันดับ 1 ของโลก</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Thai Festivals -->
+    <section id="festivals" class="py-16 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-red-400 bg-red-950 px-3 py-1 rounded-full border border-red-800 inline-block mb-3" data-i18n="sec_fest_badge">CULTURE & TRADITIONS</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="sec_fest_title">ประเพณี & เทศกาลตระการตา</h2>
+                <p class="text-slate-300 mt-2 max-w-2xl mx-auto" data-i18n="sec_fest_subtitle">ร่วมงานฉลองระดับมรดกโลกที่เปี่ยมด้วยความสุขและพลังแห่งสืบสานวัฒนธรรม</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Festival 1 -->
+                <div class="dark-glass-card p-6 rounded-2xl flex flex-col sm:flex-row gap-6 items-center border border-white/10">
+                    <div class="text-6xl p-4 bg-red-600/20 rounded-2xl border border-red-500/30 flex-shrink-0">
+                        💦
+                    </div>
+                    <div>
+                        <div class="text-xs text-red-400 font-bold uppercase tracking-wider mb-1" data-i18n="fest_1_date">13 - 15 เมษายน ของทุกปี</div>
+                        <h3 class="text-2xl font-bold text-white mb-2" data-i18n="fest_1_title">เทศกาลสงกรานต์ (Songkran)</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed" data-i18n="fest_1_desc">ปีใหม่ไทยและการสรงน้ำพระ รดน้ำดำหัวผู้ใหญ่ สาดน้ำสืบสานความสดชื่น ซึ่งได้รับการขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมสืบทอดโดย UNESCO</p>
+                    </div>
+                </div>
+
+                <!-- Festival 2 -->
+                <div class="dark-glass-card p-6 rounded-2xl flex flex-col sm:flex-row gap-6 items-center border border-white/10">
+                    <div class="text-6xl p-4 bg-blue-600/20 rounded-2xl border border-blue-500/30 flex-shrink-0">
+                        🪔
+                    </div>
+                    <div>
+                        <div class="text-xs text-blue-300 font-bold uppercase tracking-wider mb-1" data-i18n="fest_2_date">วันเพ็ญเดือน 12 (พฤศจิกายน)</div>
+                        <h3 class="text-2xl font-bold text-white mb-2" data-i18n="fest_2_title">ประเพณีลอยกระทง (Loy Krathong)</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed" data-i18n="fest_2_desc">ลอยกระทงประทีปขอขมาแม่น้ำคงคา แสงไฟวับแวมตระการตาทั่วสายน้ำและโคมลอยยี่เป็งตระการตาเต็มท้องฟ้าเหนือเมืองเชียงใหม่</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Trip Travel Planner -->
+    <section id="planner" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-100 px-3 py-1 rounded-full inline-block mb-3" data-i18n="sec_plan_badge">SMART TRIP PLANNER</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="sec_plan_title">เครื่องมือวางแผนการท่องเที่ยวไทย</h2>
+            <p class="text-slate-600 mt-2 max-w-2xl mx-auto" data-i18n="sec_plan_subtitle">คำนวณและช่วยคุณออกแบบคำแนะนำทริปแบบง่ายๆ ในไม่กี่คลิก</p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl max-w-4xl mx-auto relative overflow-hidden">
+            <!-- Top Gradient Accent -->
+            <div class="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-blue-900 via-white to-red-600"></div>
+
+            <form id="trip-planner-form" onsubmit="generateTripPlan(event)" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <!-- Destination Region -->
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2" data-i18n="plan_lbl_region">ภูมิภาคที่ต้องการไป</label>
+                        <select id="plan-region" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-medium focus:outline-none focus:border-blue-600">
+                            <option value="north" data-i18n="opt_north">ภาคเหนือ (ภูเขา/อากาศเย็น)</option>
+                            <option value="south" data-i18n="opt_south">ภาคใต้ (ทะเล/เกาะสวย)</option>
+                            <option value="central" data-i18n="opt_central">ภาคกลาง (ประวัติศาสตร์/วัดวาอาราม)</option>
+                            <option value="ne" data-i18n="opt_ne">ภาคอีสาน (วัฒนธรรม/ธรรมชาติ)</option>
+                        </select>
+                    </div>
+
+                    <!-- Duration -->
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2" data-i18n="plan_lbl_days">จำนวนวันเดินทาง</label>
+                        <select id="plan-days" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-medium focus:outline-none focus:border-blue-600">
+                            <option value="1" data-i18n="opt_1day">1 วัน (One-day Trip)</option>
+                            <option value="3" selected data-i18n="opt_3days">3 วัน 2 คืน (กำลังดี)</option>
+                            <option value="5" data-i18n="opt_5days">5 วันขึ้นไป (เที่ยวจุใจ)</option>
+                        </select>
+                    </div>
+
+                    <!-- Style -->
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2" data-i18n="plan_lbl_style">สไตล์การท่องเที่ยว</label>
+                        <select id="plan-style" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-medium focus:outline-none focus:border-blue-600">
+                            <option value="chill" data-i18n="opt_chill">พักผ่อนหย่อนใจ / สโลว์ไลฟ์</option>
+                            <option value="adventure" data-i18n="opt_adventure">ผจญภัย / กิจกรรมกลางแจ้ง</option>
+                            <option value="foodie" data-i18n="opt_foodie">สายกิน / ตระเวนทานอาหารเด็ด</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full gradient-button text-white font-bold py-4 rounded-xl shadow-lg text-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span data-i18n="btn_generate_plan">สร้างแผนการท่องเที่ยวแนะนำ</span>
+                </button>
+            </form>
+
+            <!-- Plan Output Box -->
+            <div id="planner-result" class="hidden mt-8 p-6 bg-slate-50 border-2 border-dashed border-blue-200 rounded-2xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-blue-900 flex items-center gap-2">
+                        <i class="fa-solid fa-route text-red-600"></i>
+                        <span id="plan-result-title">แผนเที่ยวแนะนำสำหรับคุณ</span>
+                    </h3>
+                    <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2.5 py-1 rounded-full" data-i18n="badge_recommended">แนะนำพิเศษ</span>
+                </div>
+                <div id="plan-result-content" class="text-slate-700 text-sm space-y-3 leading-relaxed">
+                    <!-- Plan details filled by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-slate-900 text-white pt-16 pb-8 border-t-4 border-thRed">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+                <!-- Col 1: Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-900 to-red-600 flex items-center justify-center text-white text-xl font-bold">
+                            🐘
+                        </div>
+                        <span class="text-2xl font-extrabold text-white" id="footer-brand">สยามดินแดนแห่งรอยยิ้ม</span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-md leading-relaxed mb-6" data-i18n="footer_desc">
+                        รวบรวมข้อมูลสถานที่ท่องเที่ยว อาหาร และเทศกาลประจำ 77 จังหวัดทั่วประเทศไทย เพื่อส่งเสริมการท่องเที่ยวไทยให้ทุกคนออกไปค้นพบเสน่ห์ที่ไม่เคยสัมผัส
+                    </p>
+                    <div class="flex space-x-4 text-slate-400">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-blue-600 hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-red-600 hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-blue-400 hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4 border-l-4 border-red-600 pl-3" data-i18n="footer_quick_links">ลิงก์ด่วน</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#provinces" class="hover:text-white transition-colors" data-i18n="nav_provinces">77 จังหวัด</a></li>
+                        <li><a href="#attractions" class="hover:text-white transition-colors" data-i18n="nav_attractions">สถานที่ท่องเที่ยว</a></li>
+                        <li><a href="#food" class="hover:text-white transition-colors" data-i18n="nav_food">อาหารไทย</a></li>
+                        <li><a href="#festivals" class="hover:text-white transition-colors" data-i18n="nav_festivals">ประเพณี & เทศกาล</a></li>
+                        <li><a href="#planner" class="hover:text-white transition-colors" data-i18n="nav_planner">วางแผนเที่ยว</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Regions -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4 border-l-4 border-blue-600 pl-3" data-i18n="footer_regions">ภูมิภาคในไทย</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#provinces" onclick="filterRegion('north')" class="hover:text-white transition-colors" data-i18n="region_north">ภาคเหนือ</a></li>
+                        <li><a href="#provinces" onclick="filterRegion('central')" class="hover:text-white transition-colors" data-i18n="region_central">ภาคกลาง</a></li>
+                        <li><a href="#provinces" onclick="filterRegion('ne')" class="hover:text-white transition-colors" data-i18n="region_ne">ภาคตะวันออกเฉียงเหนือ</a></li>
+                        <li><a href="#provinces" onclick="filterRegion('south')" class="hover:text-white transition-colors" data-i18n="region_south">ภาคใต้</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p data-i18n="footer_copy">© 2026 สยามดินแดนแห่งรอยยิ้ม (Siam Land of Smiles). สงวนลิขสิทธิ์ทุกประการ.</p>
+                <div class="flex gap-4">
+                    <span class="text-slate-400">❤️ Made with Pride for Thailand</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. Comprehensive Data for 77 Provinces in Thailand ---
+        const provincesData = [
+            // NORTH
+            { id: "chiangmai", region: "north", nameTh: "เชียงใหม่", nameEn: "Chiang Mai", spot: "ดอยอินทนนท์, วัดพระธาตุดอยสุเทพ", food: "ข้าวซอย, ไส้อั่ว", fest: "ยี่เป็ง, สงกรานต์" },
+            { id: "chiangrai", region: "north", nameTh: "เชียงราย", nameEn: "Chiang Rai", spot: "วัดร่องขุ่น, ดอยแม่สลอง", food: "น้ำพริกอ่อง, ขนมจีนน้ำเงี้ยว", fest: "งานดอกไม้งาม" },
+            { id: "lampang", region: "north", nameTh: "ลำปาง", nameEn: "Lampang", spot: "วัดพระธาตุลำปางหลวง, รถม้าลำปาง", food: "แกงฮังเล", fest: "งานขันโตกช้าง" },
+            { id: "lamphun", region: "north", nameTh: "ลำพูน", nameEn: "Lamphun", spot: "วัดพระธาตุหริภุญชัย", food: "ก๋วยเตี๋ยวลำไย", fest: "สรงน้ำพระธาตุหริภุญชัย" },
+            { id: "maehongson", region: "north", nameTh: "แม่ฮ่องสอน", nameEn: "Mae Hong Son", spot: "ปาย, บ้านรักไทย", food: "ถั่วเน่า, ถั่วแปยี", fest: "ปอยส่างลอง" },
+            { id: "nan", region: "north", nameTh: "น่าน", nameEn: "Nan", spot: "วัดภูมินทร์ (ปู่ม่านย่าม่าน)", food: "ไก่ทอดมะแขว่น", fest: "แข่งเรือทานก๋วยสลาก" },
+            { id: "phayao", region: "north", nameTh: "พะเยา", nameEn: "Phayao", spot: "กว๊านพะเยา, วัดทุ่งกว๋าว", food: "กุ้งเต้นกว๊านพะเยา", fest: "เวียนเทียนกลางน้ำ" },
+            { id: "phrae", region: "north", nameTh: "แพร่", nameEn: "Phrae", spot: "แพะเมืองผี, คุ้มวงศ์บุรี", food: "ขนมจีนน้ำย้อย", fest: "ตักบาตรบนเมฆ" },
+            { id: "uttaradit", region: "north", nameTh: "อุตรดิตถ์", nameEn: "Uttaradit", spot: "เขื่อนสิริกิติ์, อุทยานภูโหย่ง", food: "ลางสาด, ทุเรียนหลิน-หลง", fest: "งานพระยาพิชัยดาบหัก" },
+
+            // CENTRAL & CAPITAL
+            { id: "bangkok", region: "central", nameTh: "กรุงเทพมหานคร", nameEn: "Bangkok", spot: "วัดพระแก้ว, วัดอรุณฯ", food: "ผัดไทย, ต้มยำกุ้ง", fest: "สงกรานต์ถนนข้าวสาร" },
+            { id: "ayutthaya", region: "central", nameTh: "พระนครศรีอยุธยา", nameEn: "Ayutthaya", spot: "วัดมหาธาตุ, วัดไชยวัฒนาราม", food: "กุ้งแม่น้ำเผา, โรตีสายไหม", fest: "ยอยศยิ่งฟ้าอยุธยามรดกโลก" },
+            { id: "nonthaburi", region: "central", nameTh: "นนทบุรี", nameEn: "Nonthaburi", spot: "เกาะเกร็ด, วัดบัวขวัญ", food: "ทุเรียนนนท์, ทอดมันหน่อกะลา", fest: "ตักบาตรดอกไม้" },
+            { id: "pathumthani", region: "central", nameTh: "ปทุมธานี", nameEn: "Pathum Thani", spot: "ดรีมเวิลด์, วัดเจดีย์หอย", food: "ก๋วยเตี๋ยวเรือรังสิต", fest: "ประเพณีแข่งเรือยาว" },
+            { id: "samutprakan", region: "central", nameTh: "สมุทรปราการ", nameEn: "Samut Prakan", spot: "เมืองโบราณ, สถานตากอากาศบางปู", food: "ปลาสลิดบางบ่อ", fest: "รับบัว (โยนบัว)" },
+            { id: "samutsakhon", region: "central", nameTh: "สมุทรสาคร", nameEn: "Samut Sakhon", spot: "ศาลพันท้ายนรสิงห์", food: "อาหารทะเลสด, ลอดช่องวัดเจษ", fest: "งานไหว้เจ้าพ่อหลักเมือง" },
+            { id: "samutsongkhram", region: "central", nameTh: "สมุทรสงคราม", nameEn: "Samut Songkhram", spot: "ตลาดน้ำอัมพวา, ตลาดร่มหุบ", food: "ปลาทูหน้านวลแม่กลอง", fest: "งานปลาทูแม่กลอง" },
+            { id: "sukhothai", region: "central", nameTh: "สุโขทัย", nameEn: "Sukhothai", spot: "อุทยานประวัติศาสตร์สุโขทัย", food: "ก๋วยเตี๋ยวสุโขทัย", fest: "เผาเทียนเล่นไฟ" },
+            { id: "พิษณุโลก", region: "central", nameTh: "พิษณุโลก", nameEn: "Phitsanulok", spot: "วัดพระศรีรัตนมหาธาตุ (พระพุทธชินราช)", food: "ก๋วยเตี๋ยวห้อยขา", fest: "งานพุทธชินราช" },
+            { id: "lopburi", region: "central", nameTh: "ลพบุรี", nameEn: "Lopburi", spot: "พระปรางค์สามยอด, ทุ่งทานตะวัน", food: "ไข่เค็มดินสอพอง", fest: "โต๊ะจีนลิง" },
+            { id: "kanchanaburi", region: "central", nameTh: "กาญจนบุรี", nameEn: "Kanchanaburi", spot: "สะพานข้ามแม่น้ำแคว, น้ำตกเอราวัณ", food: "แกงป่าเมืองกาญจน์", fest: "สัปดาห์สะพานข้ามแม่น้ำแคว" },
+            { id: "ratchaburi", region: "central", nameTh: "ราชบุรี", nameEn: "Ratchaburi", spot: "ตลาดน้ำดำเนินสะดวก, สวนผึ้ง", food: "เต้าหู้ดำ, โอ่งมังกร", fest: "งานท่องเที่ยวราชบุรี" },
+            { id: "phetchaburi", region: "central", nameTh: "เพชรบุรี", nameEn: "Phetchaburi", spot: "เขาวัง, หาดชะอำ", food: "ขนมหม้อแกง, ก๋วยเตี๋ยวต้มยำน้ำตาลสด", fest: "งานพระนครคีรี" },
+            { id: "prachuap", region: "central", nameTh: "ประจวบคีรีขันธ์", nameEn: "Prachuap Khiri Khan", spot: "หัวหิน, อ่าวมะนาว", food: "สับปะรดปราณบุรี", fest: "งานหัวหินจิ๊บแจ๊ส" },
+            { id: "suphanburi", region: "central", nameTh: "สุพรรณบุรี", nameEn: "Suphan Buri", spot: "มังกรสวรรค์, บึงฉวาก", food: "สาลี่สุพรรณ, ปลาม้า", fest: "ตรุษจีนมังกรสวรรค์" },
+            { id: "saraburi", region: "central", nameTh: "สระบุรี", nameEn: "Saraburi", spot: "วัดพระพุทธบาท, มวกเหล็ก", food: "กะหรี่ปั๊บมวกเหล็ก", fest: "ตักบาตรดอกเข้าพรรษา" },
+            { id: "nakhonpathom", region: "central", nameTh: "นครปฐม", nameEn: "Nakhon Pathom", spot: "องค์พระปฐมเจดีย์, ตลาดน้ำวัดดอนหวาย", food: "ข้าวหมูกรอบ, ส้มโอนครชัยศรี", fest: "งานองค์พระปฐมเจดีย์" },
+            { id: "nakhonnayok", region: "central", nameTh: "นครนายก", nameEn: "Nakhon Nayok", spot: "เขื่อนขุนด่านปราการชล, น้ำตกสาริกา", food: "มะยงชิด", fest: "งานมะยงชิดมะปรางหวาน" },
+            { id: "phetchabun", region: "central", nameTh: "เพชรบูรณ์", nameEn: "Phetchabun", spot: "เขาค้อ, ภูทับเบิก", food: "มะขามหวาน, ไก่ย่างวิเชียรบุรี", fest: "อุ้มพระดำน้ำ" },
+            { id: "kamphaengphet", region: "central", nameTh: "กำแพงเพชร", nameEn: "Kamphaeng Phet", spot: "อุทยานประวัติศาสตร์กำแพงเพชร", food: "กล้วยไข่", fest: "งานสารทไทยกล้วยไข่" },
+            { id: "phichit", region: "central", nameTh: "พิจิตร", nameEn: "Phichit", spot: "วัดท่าหลวง, บึงสีไฟ", food: "ส้มโอท่าข่อย", fest: "แข่งเรือยาวประเพณี" },
+            { id: "nakhonsawan", region: "central", nameTh: "นครสวรรค์", nameEn: "Nakhon Sawan", spot: "บึงบอระเพ็ด, พาสาน", food: "โมจินครสวรรค์", fest: "ตรุษจีนปากน้ำโพ" },
+            { id: "uthaithani", region: "central", nameTh: "อุทัยธานี", nameEn: "Uthai Thani", spot: "วัดท่าซุง, ห้วยขาแข้ง", food: "ปลาแรดสแกกรัง", fest: "ตักบาตรเทโว" },
+            { id: "chainat", region: "central", nameTh: "ชัยนาท", nameEn: "Chai Nat", spot: "สวนนกชัยนาท, เขื่อนเจ้าพระยา", food: "ส้มโอขาวแตงกวา", fest: "วันส้มโอขาวแตงกวา" },
+            { id: "angthong", region: "central", nameTh: "อ่างทอง", nameEn: "Ang Thong", spot: "วัดม่วง (พระพุทธรูปองค์ใหญ่)", food: "ผัดไทยวัดขุนอินทประมูล", fest: "งานไหว้พระนอน" },
+            { id: "singburi", region: "central", nameTh: "สิงห์บุรี", nameEn: "Sing Buri", spot: "ค่ายบางระจัน, วัดพิกุลทอง", food: "ปลาช่อนแม่ลา", fest: "งานกินปลาแม่ลา" },
+            { id: "chachoengsao", region: "central", nameTh: "ฉะเชิงเทรา", nameEn: "Chachoengsao", spot: "วัดโสธรวรารามวรวิหาร", food: "มะม่วงน้ำดอกไม้, ชิฟฟ่อน", fest: "นมัสการหลวงพ่อโสธร" },
+            { id: "chonburi", region: "central", nameTh: "ชลบุรี", nameEn: "Chonburi", spot: "พัทยา, บางแสน, เกาะล้าน", food: "ข้าวบูดชลบุรี, อาหารทะเล", fest: "ประเพณีวิ่งควาย" },
+            { id: "rayong", region: "central", nameTh: "ระยอง", nameEn: "Rayong", spot: "เกาะเสม็ด, หาดแม่รำพึง", food: "ทุเรียน, น้ำปลาแท้ระยอง", fest: "งานผลไม้ระยอง" },
+            { id: "chantaburi", region: "central", nameTh: "จันทบุรี", nameEn: "Chanthaburi", spot: "น้ำตกพลิ้ว, ชุมชนริมน้ำจันทบูร", food: "ก๋วยเตี๋ยวผัดปู, ทุเรียน", fest: "งานเปิดประตูสู่พลอย" },
+            { id: "trat", region: "central", nameTh: "ตราด", nameEn: "Trat", spot: "เกาะช้าง, เกาะกูด, เกาะหมาก", food: "สับปะรดตราดสีทอง", fest: "วันตราดรำลึก" },
+            { id: "sa Kaeo", region: "central", nameTh: "สระแก้ว", nameEn: "Sa Kaeo", spot: "ตลาดโรงเกลือ, ปางสีดา", food: "ไก่ย่างห้วยทับทัน", fest: "เทศกาลดูผีเสื้อปางสีดา" },
+            { id: "prachinburi", region: "central", nameTh: "ปราจีนบุรี", nameEn: "Prachinburi", spot: "ตึกเจ้าพระยาอภัยภูเบศร", food: "ทุเรียนปราจีน", fest: "งานวันผลไม้ปราจีน" },
+
+            // NORTHEAST (ISAN)
+            { id: "korat", region: "ne", nameTh: "นครราชสีมา", nameEn: "Nakhon Ratchasima", spot: "อนุสาวรีย์ท้าวสุรนารี (ย่าโม), เขาใหญ่", food: "ผัดหมี่โคราช, ส้มตำ", fest: "งานฉลองวันแห่งชัยชนะย่าโม" },
+            { id: "khonkaen", region: "ne", nameTh: "ขอนแก่น", nameEn: "Khon Kaen", spot: "บึงแก่นนคร, พระมหาธาตุแก่นนคร", food: "ไก่ย่างเขาสวนกวาง, หม่ำ", fest: "เทศกาลไหมนานาชาติ" },
+            { id: "ubon", region: "ne", nameTh: "อุบลราชธานี", nameEn: "Ubon Ratchathani", spot: "สามพันโบก, ผาแต้ม", food: "หมูยออุบล, ก๋วยจั๊บอุบล", fest: "แห่เทียนพรรษา" },
+            { id: "udon", region: "ne", nameTh: "อุดรธานี", nameEn: "Udon Thani", spot: "ทะเลบัวแดง, คำชะโนด", food: "แหนมเนือง", fest: "งานทุ่งศรีเมือง" },
+            { id: "buriram", region: "ne", nameTh: "บุรีรัมย์", nameEn: "Buri Ram", spot: "ปราสาทพนมรุ้ง, สนามช้างอารีนา", food: "ลูกชิ้นยืนกิน", fest: "ขึ้นพนมรุ้ง" },
+            { id: "surin", region: "ne", nameTh: "สุรินทร์", nameEn: "Surin", spot: "หมู่บ้านช้างบ้านตากลาง", food: "สุราแช่, กุนเชียง", fest: "งานแสดงช้างสุรินทร์" },
+            { id: "roiet", region: "ne", nameTh: "ร้อยเอ็ด", nameEn: "Roi Et", spot: "หอโหวต 101, บึงพลาญชัย", food: "ข้าวหอมมะลิทุ่งกุลาร้องไห้", fest: "งานบุญผะเหวด" },
+            { id: "loei", region: "ne", nameTh: "เลย", nameEn: "Loei", spot: "ภูกระดึง, เชียงคาน", food: "มะพร้าวแก้ว", fest: "ผีตาโขน" },
+            { id: "nakhonphanom", region: "ne", nameTh: "นครพนม", nameEn: "Nakhon Phanom", spot: "พระธาตุพนม, พญาศรีสัตตนาคราช", food: "กาละแมแม่เกด", fest: "ไหลเรือไฟ" },
+            { id: "sakonnakhon", region: "ne", nameTh: "สกลนคร", nameEn: "Sakon Nakhon", spot: "พระธาตุเชิงชุม, หนองหาร", food: "เนื้อโพนยางคำ", fest: "แห่ปราสาทผึ้ง" },
+            { id: "nongkhai", region: "ne", nameTh: "หนองคาย", nameEn: "Nong Khai", spot: "วัดผาตากเสื้อ, ศาลาแก้วกูล้า", food: "ปลาน้ำโขง", fest: "บั้งไฟพญานาค" },
+            { id: "kalasin", region: "ne", nameTh: "กาฬสินธุ์", nameEn: "Kalasin", spot: "พิพิธภัณฑ์สิรินธร (ไดโนเสาร์)", food: "ผ้าไหมแพรวา", fest: "งานมหกรรมโปงลาง" },
+            { id: "mahasarakham", region: "ne", nameTh: "มหาสารคาม", nameEn: "Maha Sarakham", spot: "พระธาตุนาดูน", food: "แจ่วบอง", fest: "งานนมัสการพระธาตุนาดูน" },
+            { id: "chaiyaphum", region: "ne", nameTh: "ชัยภูมิ", nameEn: "Chaiyaphum", spot: "ทุ่งดอกกระเจียว, มอหินขาว", food: "หม่ำชัยภูมิ", fest: "ท่องเทียวดอกกระเจียวบาน" },
+            { id: "mukdahan", region: "ne", nameTh: "มุกดาหาร", nameEn: "Mukdahan", spot: "หอแก้วมุกดาหาร, ตลาดอินโดจีน", food: "หมูหันแก่งกะเบา", fest: "แข่งเรือยาวสองฝั่งโขง" },
+            { id: "yasothon", region: "ne", nameTh: "ยโสธร", nameEn: "Yasothon", spot: "วิมานพญาแถน", food: "ปลาส้มยโสธร", fest: "ประเพณีบุญบั้งไฟ" },
+            { id: "amnatcharoen", region: "ne", nameTh: "อำนาจเจริญ", nameEn: "Amnat Charoen", spot: "พระมงคลมิ่งเมือง", food: "เนื้อแห้ง", fest: "งานนมัสการพระมงคลมิ่งเมือง" },
+            { id: "nongbualamphu", region: "ne", nameTh: "หนองบัวลำภู", nameEn: "Nong Bua Lamphu", spot: "อุทยานแห่งชาติภูเก้า-ภูพานคำ", food: "กล้วยตาก", fest: "งานนเรศวรมหาราช" },
+            { id: "buogkan", region: "ne", nameTh: "บึงกาฬ", nameEn: "Bueng Kan", spot: "หินสามวาฬ, วัดภูทอก", food: "ปลาน้ำโขงต้มยำ", fest: "แข่งเรือยาวบึงกาฬ" },
+            { id: "sisaket", region: "ne", nameTh: "ศรีสะเกษ", nameEn: "Si Sa Ket", spot: "ผามออีแดง, วัดป่ามหาเจดีย์แก้ว", food: "ทุเรียนภูเขาไฟ", fest: "เทศกาลดอกลำดวน" },
+
+            // SOUTH
+            { id: "phuket", region: "south", nameTh: "ภูเก็ต", nameEn: "Phuket", spot: "แหลมพรหมเทพ, เมืองเก่าภูเก็ต", food: "หมูฮ้อง, โอวต้าว, ติ่มซำ", fest: "กินเจภูเก็ต" },
+            { id: "krabi", region: "south", nameTh: "กระบี่", nameEn: "Krabi", spot: "อ่าวนาง, สระมรกต, เกาะพีพี", food: "หอยชักตีน, แกงส้มใต้", fest: "กระบี่เบิกฟ้าอันดามัน" },
+            { id: "suratthani", region: "south", nameTh: "สุราษฎร์ธานี", nameEn: "Surat Thani", spot: "เกาะสมุย, เกาะพะงัน, เขาสก", food: "ไข่เค็มไชยา, หอยนางรมใหญ่", fest: "ชักพระสุราษฎร์ธานี" },
+            { id: "songkhla", region: "south", nameTh: "สงขลา", nameEn: "Songkhla", spot: "หาดใหญ่, เมืองเก่าสงขลา, หาดชลทัศน์", food: "เต้าคั่ว, ไก่ทอดหาดใหญ่", fest: "งานลอยกระทงสองทะเล" },
+            { id: "phangnga", region: "south", nameTh: "พังงา", nameEn: "Phang Nga", spot: "เขาตะปู (เกาะเจมส์บอนด์), เกาะสิมิลัน", food: "แกงไตปลา, สาคูต้น", fest: "งานเปิดฤดูท่องเที่ยวพังงา" },
+            { id: "trang", region: "south", nameTh: "ตรัง", nameEn: "Trang", spot: "ถ้ำเลเขากอบ, เกาะกระดาน", food: "หมูกรอบตรัง, เค้กตรัง", fest: "วิวาห์ใต้สมุทร" },
+            { id: "nakonsithammarat", region: "south", nameTh: "นครศรีธรรมราช", nameEn: "Nakhon Si Thammarat", spot: "วัดพระมหาธาตุวรมหาวิหาร, คีรีวง", food: "ขนมจีนเมืองคอน, แกงพริก", fest: "แห่ผ้าขึ้นธาตุ" },
+            { id: "chumphon", region: "south", nameTh: "ชุมพร", nameEn: "Chumphon", spot: "หาดทรายรี, ศาลกรมหลวงชุมพรฯ", food: "กล้วยเล็บมือนาง", fest: "งานเปิดโลกทะเลชุมพร" },
+            { id: "ranong", region: "south", nameTh: "ระนอง", nameEn: "Ranong", spot: "บ่อน้ำร้อนรักษะวาริน, เกาะพยาม", food: "ซาลาเปาทับหลี", fest: "งานอาบน้ำแร่ระนอง" },
+            { id: "satun", region: "south", nameTh: "สตูล", nameEn: "Satun", spot: "เกาะหลีเป๊ะ, อุทยานธรณีสตูล", food: "โรตีชาชักสตูล", fest: "งานว่าวสตูล" },
+            { id: "phatthalung", region: "south", nameTh: "พัทลุง", nameEn: "Phatthalung", spot: "ทะเลน้อย, ควนน้อย", food: "ปลาดุกร่า", fest: "งานแข่งเรือโพน" },
+            { id: "yala", region: "south", nameTh: "ยะลา", nameEn: "Yala", spot: "เบตง, ทะเลหมอกอัยเยอร์เวง", food: "ไก่เบตง, เฉาก๊วยเบตง", fest: "งานงานส้มโอบตง" },
+            { id: "pattani", region: "south", nameTh: "ปัตตานี", nameEn: "Pattani", spot: "มัสยิดกรือเซะ, ศาลเจ้าแม่ลิ้มกอเหนี่ยว", food: "นาซิการาแบ", fest: "กตัญญูคู่ฟ้าเจ้าแม่ลิ้มกอเหนี่ยว" },
+            { id: "narathiwat", region: "south", nameTh: "นราธิวาส", nameEn: "Narathiwat", spot: "อ่าวมะนาว, วัดชลธาราสิงเห", food: "ปลากุเลาเค็มตากใบ", fest: "งานของดีเมืองนรา" }
+        ];
+
+        // --- 2. Translations Data (TH / EN) ---
+        const translations = {
+            th: {
+                nav_provinces: "77 จังหวัด",
+                nav_attractions: "สถานที่ท่องเที่ยว",
+                nav_food: "อาหารไทย",
+                nav_festivals: "เทศกาล",
+                nav_planner: "วางแผนเที่ยว",
+                hero_badge: "✨ ยินดีต้อนรับสู่ประเทศไทย • Welcome to Thailand",
+                hero_title_1: "สยามดินแดนแห่งรอยยิ้ม",
+                hero_subtitle: "ค้นพบเสน่ห์มหัศจรรย์ทั่วทั้ง 77 จังหวัด",
+                hero_desc: "สัมผัสความสวยงามของวัฒนธรรมอันล้ำค่า ธรรมชาติระดับโลก รสชาติอาหารที่เป็นเอกลักษณ์ และประเพณีตระการตา ปักหมุดจัดทริปในแบบของคุณได้แล้ววันนี้",
+                hero_search_btn: "ค้นหาจังหวัด",
+                stat_provinces: "จังหวัดทั่วไทย",
+                stat_attractions: "สถานที่ท่องเที่ยว",
+                stat_signature_food: "เมนูซิกเนเจอร์",
+                stat_regions: "ภูมิภาคทรงเสน่ห์",
+                sec_prov_badge: "EXPLORE THAILAND",
+                sec_prov_title: "ค้นพบไฮไลท์ & ซิกเนเจอร์ 77 จังหวัด",
+                sec_prov_subtitle: "เลือกจังหวัดที่คุณต้องการ เพื่อดูสถานที่ท่องเที่ยวเด่น อาหารซิกเนเจอร์ และประเพณีประจำจังหวัด",
+                region_all: "ทั้งหมด (77)",
+                region_north: "ภาคเหนือ",
+                region_central: "ภาคกลาง & ปริมณฑล",
+                region_ne: "ภาคอีสาน",
+                region_south: "ภาคใต้",
+                label_select_prov: "เลือกจังหวัดอย่างรวดเร็ว:",
+                select_prov_placeholder: "-- กรุณาเลือกจังหวัด --",
+                sec_att_badge: "WORLD-CLASS DESTINATIONS",
+                sec_att_title: "สถานที่ท่องเที่ยวยอดฮิตที่คุณไม่ควรพลาด",
+                sec_att_subtitle: "รวบรวมสุดยอดแลนด์มาร์คอันดึงดูดนักท่องเที่ยวจากทั่วทุกมุมโลก",
+                att_1_title: "วัดพระแก้ว & พระบรมมหาราชวัง",
+                att_1_desc: "ศูนย์รวมจิตใจและสถาปัตยกรรมไทยอันอ่อนช้อยงดงาม วิจิตรอลังการใจกลางเมืองหลวง",
+                att_tag_culture: "วัฒนธรรม & ประวัติศาสตร์",
+                att_2_title: "หมู่เกาะพีพี & ทะเลอันดามัน",
+                att_2_desc: "สวรรค์แห่งท้องทะเลใสมรกต หาดทรายขาวละเอียด ละลานตาด้วยแนวปะการังและเขาหินปูน",
+                att_tag_nature: "ธรรมชาติ & ทะเล",
+                att_3_title: "ดอยอินทนนท์ & วัดพระธาตุดอยสุเทพ",
+                att_3_desc: "สัมผัสอากาศหนาวบนยอดเขาที่สูงที่สุดในไทย พร้อมกราบไหว้สิ่งศักดิ์สิทธิ์คู่เมืองล้านนา",
+                att_tag_mountain: "ภูเขา & วิวทิวทัศน์",
+                sec_food_badge: "GASTRONOMY",
+                sec_food_title: "สุดยอดรสชาติอาหารไทยเลื่องชื่อ",
+                sec_food_subtitle: "สัมผัสเสน่ห์รสชาติ เผ็ด กลมกล่อม หอมสมุนไพร ที่ทั่วโลกยกย่องให้เป็นอันดับหนึ่ง",
+                food_1_title: "ต้มยำกุ้ง",
+                food_1_sub: "Tom Yum Goong",
+                food_1_desc: "ซุปต้มยำรสเผ็ดเปรี้ยวกลมกล่อม หอมกลิ่นข่า ตะไคร้ ใบมะกรูด พร้อมกุ้งตัวโตเนื้อเด้ง",
+                food_2_title: "ผัดไทย",
+                food_2_sub: "Pad Thai",
+                food_2_desc: "ก๋วยเตี๋ยวเส้นจันทน์ผัดซอสมะขามเปียกรสเข้มข้น เสิร์ฟพร้อมเต้าหู้ ถั่วฝักยาว และกุ้งสด",
+                food_3_title: "ส้มตำไทย",
+                food_3_sub: "Som Tum",
+                food_3_desc: "สลัดมะละกอดิบสไตล์อีสาน เปรี้ยว หวาน เผ็ด แซ่บนัว โรยถั่วลิสงและกุ้งแห้งกรุบกรอบ",
+                food_4_title: "แกงมัสมั่น",
+                food_4_sub: "Massaman Curry",
+                food_4_desc: "แกงกะทิเครื่องแกงเข้มข้นหอมเครื่องเทศ เมนูที่ได้รับการโหวตให้เป็นอันดับ 1 ของโลก",
+                sec_fest_badge: "CULTURE & TRADITIONS",
+                sec_fest_title: "ประเพณี & เทศกาลตระการตา",
+                sec_fest_subtitle: "ร่วมงานฉลองระดับมรดกโลกที่เปี่ยมด้วยความสุขและพลังแห่งสืบสานวัฒนธรรม",
+                fest_1_date: "13 - 15 เมษายน ของทุกปี",
+                fest_1_title: "เทศกาลสงกรานต์ (Songkran)",
+                fest_1_desc: "ปีใหม่ไทยและการสรงน้ำพระ รดน้ำดำหัวผู้ใหญ่ สาดน้ำสืบสานความสดชื่น ซึ่งได้รับการขึ้นทะเบียนเป็นมรดกทางวัฒนธรรมสืบทอดโดย UNESCO",
+                fest_2_date: "วันเพ็ญเดือน 12 (พฤศจิกายน)",
+                fest_2_title: "ประเพณีลอยกระทง (Loy Krathong)",
+                fest_2_desc: "ลอยกระทงประทีปขอขมาแม่น้ำคงคา แสงไฟวับแวมตระการตาทั่วสายน้ำและโคมลอยยี่เป็งตระการตาเต็มท้องฟ้าเหนือเมืองเชียงใหม่",
+                sec_plan_badge: "SMART TRIP PLANNER",
+                sec_plan_title: "เครื่องมือวางแผนการท่องเที่ยวไทย",
+                sec_plan_subtitle: "คำนวณและช่วยคุณออกแบบคำแนะนำทริปแบบง่ายๆ ในไม่กี่คลิก",
+                plan_lbl_region: "ภูมิภาคที่ต้องการไป",
+                opt_north: "ภาคเหนือ (ภูเขา/อากาศเย็น)",
+                opt_south: "ภาคใต้ (ทะเล/เกาะสวย)",
+                opt_central: "ภาคกลาง (ประวัติศาสตร์/วัดวาอาราม)",
+                opt_ne: "ภาคอีสาน (วัฒนธรรม/ธรรมชาติ)",
+                plan_lbl_days: "จำนวนวันเดินทาง",
+                opt_1day: "1 วัน (One-day Trip)",
+                opt_3days: "3 วัน 2 คืน (กำลังดี)",
+                opt_5days: "5 วันขึ้นไป (เที่ยวจุใจ)",
+                plan_lbl_style: "สไตล์การท่องเที่ยว",
+                opt_chill: "พักผ่อนหย่อนใจ / สโลว์ไลฟ์",
+                opt_adventure: "ผจญภัย / กิจกรรมกลางแจ้ง",
+                opt_foodie: "สายกิน / ตระเวนทานอาหารเด็ด",
+                btn_generate_plan: "สร้างแผนการท่องเที่ยวแนะนำ",
+                badge_recommended: "แนะนำพิเศษ",
+                footer_desc: "รวบรวมข้อมูลสถานที่ท่องเที่ยว อาหาร และเทศกาลประจำ 77 จังหวัดทั่วประเทศไทย เพื่อส่งเสริมการท่องเที่ยวไทยให้ทุกคนออกไปค้นพบเสน่ห์ที่ไม่เคยสัมผัส",
+                footer_quick_links: "ลิงก์ด่วน",
+                footer_regions: "ภูมิภาคในไทย",
+                footer_copy: "© 2026 สยามดินแดนแห่งรอยยิ้ม (Siam Land of Smiles). สงวนลิขสิทธิ์ทุกประการ.",
+                spot_label: "📍 จุดเด่น/สถานที่:",
+                food_label: "🍲 อาหารซิกเนเจอร์:",
+                fest_label: "🎉 ประเพณีเด่น:"
+            },
+            en: {
+                nav_provinces: "77 Provinces",
+                nav_attractions: "Attractions",
+                nav_food: "Thai Food",
+                nav_festivals: "Festivals",
+                nav_planner: "Trip Planner",
+                hero_badge: "✨ Welcome to Thailand • Land of Smiles",
+                hero_title_1: "Siam Land of Smiles",
+                hero_subtitle: "Discover the Magic across All 77 Provinces",
+                hero_desc: "Experience vibrant culture, world-class nature, exquisite cuisine, and colorful traditions. Plan your customized trip today!",
+                hero_search_btn: "Search Province",
+                stat_provinces: "Provinces Nationwide",
+                stat_attractions: "Tourist Attractions",
+                stat_signature_food: "Signature Dishes",
+                stat_regions: "Charming Regions",
+                sec_prov_badge: "EXPLORE THAILAND",
+                sec_prov_title: "Highlights & Signatures of 77 Provinces",
+                sec_prov_subtitle: "Select any province to discover top landmarks, signature dishes, and local festivals.",
+                region_all: "All (77)",
+                region_north: "North Region",
+                region_central: "Central Region",
+                region_ne: "Northeast (Isan)",
+                region_south: "South Region",
+                label_select_prov: "Quick Select Province:",
+                select_prov_placeholder: "-- Select a Province --",
+                sec_att_badge: "WORLD-CLASS DESTINATIONS",
+                sec_att_title: "Must-Visit Highlights",
+                sec_att_subtitle: "Top iconic landmarks attracting travelers from around the world.",
+                att_1_title: "Grand Palace & Wat Phra Kaew",
+                att_1_desc: "The spiritual heart of Thailand with breathtaking Thai architectural artistry in Bangkok.",
+                att_tag_culture: "Culture & History",
+                att_2_title: "Phi Phi Islands & Andaman Sea",
+                att_2_desc: "Tropical paradise with emerald waters, white beaches, and stunning limestone cliffs.",
+                att_tag_nature: "Nature & Islands",
+                att_3_title: "Doi Inthanon & Wat Phra That Doi Suthep",
+                att_3_desc: "Cool mountain air at Thailand's highest peak with sacred Lanna heritage views.",
+                att_tag_mountain: "Mountains & Views",
+                sec_food_badge: "GASTRONOMY",
+                sec_food_title: "World-Famous Thai Flavors",
+                sec_food_subtitle: "Indulge in a perfect harmony of spicy, sour, sweet, and aromatic herbs.",
+                food_1_title: "Tom Yum Goong",
+                food_1_sub: "Spicy Shrimp Soup",
+                food_1_desc: "Zesty hot and sour soup infused with lemongrass, galangal, kaffir lime, and juicy prawns.",
+                food_2_title: "Pad Thai",
+                food_2_sub: "Stir-Fried Noodles",
+                food_2_desc: "Classic stir-fried rice noodles with tamarind sauce, tofu, peanuts, and fresh shrimp.",
+                food_3_title: "Som Tum",
+                food_3_sub: "Papaya Salad",
+                food_3_desc: "Spicy and tangy green papaya salad pounded with peanuts, lime, chili, and dried shrimp.",
+                food_4_title: "Massaman Curry",
+                food_4_sub: "Aromatic Spice Curry",
+                food_4_desc: "Rich coconut curry with tender meat and fragrant spices voted world's #1 dish.",
+                sec_fest_badge: "CULTURE & TRADITIONS",
+                sec_fest_title: "Vibrant Festivals",
+                sec_fest_subtitle: "Celebrate UNESCO world heritage cultural traditions full of joy.",
+                fest_1_date: "April 13 - 15 Annually",
+                fest_1_title: "Songkran Water Festival",
+                fest_1_desc: "Thai New Year water splashing festival symbolizing cleansing and renewal, recognized by UNESCO.",
+                fest_2_date: "Full Moon of 12th Thai Month (Nov)",
+                fest_2_title: "Loy Krathong Festival",
+                fest_2_desc: "Floating decorative krathongs on rivers and releasing Yi Peng lanterns into the night sky.",
+                sec_plan_badge: "SMART TRIP PLANNER",
+                sec_plan_title: "Thailand Travel Planner",
+                sec_plan_subtitle: "Customized itinerary suggestions in just a few simple clicks.",
+                plan_lbl_region: "Preferred Region",
+                opt_north: "North (Mountains & Cool Air)",
+                opt_south: "South (Beaches & Islands)",
+                opt_central: "Central (History & Temples)",
+                opt_ne: "Northeast (Culture & Nature)",
+                plan_lbl_days: "Trip Duration",
+                opt_1day: "1 Day (Day Trip)",
+                opt_3days: "3 Days 2 Nights (Ideal)",
+                opt_5days: "5+ Days (Full Experience)",
+                plan_lbl_style: "Travel Style",
+                opt_chill: "Relaxing / Slow Life",
+                opt_adventure: "Adventure / Outdoor",
+                opt_foodie: "Foodie / Culinary Tour",
+                btn_generate_plan: "Generate Recommended Itinerary",
+                badge_recommended: "Recommended",
+                footer_desc: "Discover complete travel information, signature food, and unique traditions across 77 provinces of Thailand.",
+                footer_quick_links: "Quick Links",
+                footer_regions: "Regions",
+                footer_copy: "© 2026 Siam Land of Smiles. All rights reserved.",
+                spot_label: "📍 Landmark:",
+                food_label: "🍲 Signature Food:",
+                fest_label: "🎉 Festival:"
+            }
+        };
+
+        // --- State Variables ---
+        let currentLang = 'th';
+        let currentRegionFilter = 'all';
+
+        // --- 3. Language Switch Functionality ---
+        function toggleLanguage() {
+            currentLang = currentLang === 'th' ? 'en' : 'th';
+            document.documentElement.lang = currentLang;
+            
+            // Update Toggle Button Text
+            const langFlag = document.getElementById('lang-flag');
+            const langText = document.getElementById('lang-text');
+            if(currentLang === 'th') {
+                langFlag.textContent = '🇹🇭';
+                langText.textContent = 'TH | EN';
+            } else {
+                langFlag.textContent = '🇬🇧';
+                langText.textContent = 'EN | TH';
+            }
+
+            // Update UI Static Texts
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+
+            // Re-render Dynamic Elements
+            renderProvinceSelectOptions();
+            renderProvinceGrid();
+        }
+
+        // --- 4. Render Province Dropdown Select Options ---
+        function renderProvinceSelectOptions() {
+            const select = document.getElementById('province-select');
+            const currentVal = select.value;
+            select.innerHTML = `<option value="" data-i18n="select_prov_placeholder">${translations[currentLang].select_prov_placeholder}</option>`;
+
+            provincesData.forEach(prov => {
+                const opt = document.createElement('option');
+                opt.value = prov.id;
+                opt.textContent = currentLang === 'th' ? prov.nameTh : prov.nameEn;
+                select.appendChild(opt);
+            });
+            select.value = currentVal;
+        }
+
+        // --- 5. Render 77 Province Cards Grid ---
+        function renderProvinceGrid(filterKeyword = '') {
+            const grid = document.getElementById('province-grid');
+            grid.innerHTML = '';
+
+            let filteredList = provincesData;
+
+            // Region Filtering
+            if (currentRegionFilter !== 'all') {
+                filteredList = filteredList.filter(p => p.region === currentRegionFilter);
+            }
+
+            // Keyword Search Filtering
+            if (filterKeyword.trim() !== '') {
+                const term = filterKeyword.toLowerCase().trim();
+                filteredList = filteredList.filter(p => 
+                    p.nameTh.toLowerCase().includes(term) || 
+                    p.nameEn.toLowerCase().includes(term) ||
+                    p.spot.toLowerCase().includes(term) ||
+                    p.food.toLowerCase().includes(term)
+                );
+            }
+
+            if (filteredList.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-slate-400">
+                        <i class="fa-solid fa-compass text-4xl mb-3 block"></i>
+                        <p>${currentLang === 'th' ? 'ไม่พบข้อมูลจังหวัดที่ค้นหา' : 'No provinces found matching your search.'}</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredList.forEach(prov => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between hover:-translate-y-1";
+                card.id = `prov-card-${prov.id}`;
+
+                // Region Tag Badge Color
+                let regionBadgeColor = "bg-blue-100 text-blue-800";
+                let regionTextTh = "ภาคกลาง";
+                if(prov.region === 'north') { regionBadgeColor = "bg-emerald-100 text-emerald-800"; regionTextTh = "ภาคเหนือ"; }
+                else if(prov.region === 'ne') { regionBadgeColor = "bg-amber-100 text-amber-800"; regionTextTh = "ภาคอีสาน"; }
+                else if(prov.region === 'south') { regionBadgeColor = "bg-red-100 text-red-800"; regionTextTh = "ภาคใต้"; }
+
+                const displayName = currentLang === 'th' ? prov.nameTh : prov.nameEn;
+                const spotLbl = translations[currentLang].spot_label;
+                const foodLbl = translations[currentLang].food_label;
+                const festLbl = translations[currentLang].fest_label;
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors flex items-center gap-2">
+                                <span class="text-2xl">🇹🇭</span> ${displayName}
+                            </h3>
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-full ${regionBadgeColor}">
+                                ${currentLang === 'th' ? regionTextTh : prov.region.toUpperCase()}
+                            </span>
+                        </div>
+                        <div class="space-y-2 text-sm text-slate-600 mt-4">
+                            <p class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                <strong class="text-slate-800 block mb-0.5">${spotLbl}</strong> 
+                                ${prov.spot}
+                            </p>
+                            <p class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                <strong class="text-slate-800 block mb-0.5">${foodLbl}</strong> 
+                                ${prov.food}
+                            </p>
+                            <p class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                <strong class="text-slate-800 block mb-0.5">${festLbl}</strong> 
+                                ${prov.fest}
+                            </p>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // --- 6. Region Filter Handler ---
+        function filterRegion(region) {
+            currentRegionFilter = region;
+            
+            // Update active state on buttons
+            document.querySelectorAll('.region-btn').forEach(btn => {
+                if(btn.getAttribute('data-region') === region) {
+                    btn.classList.add('bg-blue-900', 'text-white', 'shadow-md');
+                    btn.classList.remove('bg-white', 'text-slate-700', 'hover:bg-slate-100');
+                } else {
+                    btn.classList.remove('bg-blue-900', 'text-white', 'shadow-md');
+                    btn.classList.add('bg-white', 'text-slate-700', 'hover:bg-slate-100');
+                }
+            });
+
+            renderProvinceGrid();
+        }
+
+        // --- 7. Quick Dropdown Selection Event ---
+        function onProvinceSelectChange(provinceId) {
+            if(!provinceId) return;
+            currentRegionFilter = 'all';
+            
+            // Reset region buttons UI
+            filterRegion('all');
+
+            renderProvinceGrid();
+            
+            // Highlight and Scroll to the selected province
+            setTimeout(() => {
+                const targetCard = document.getElementById(`prov-card-${provinceId}`);
+                if(targetCard) {
+                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    targetCard.classList.add('ring-4', 'ring-red-500', 'scale-105');
+                    setTimeout(() => {
+                        targetCard.classList.remove('ring-4', 'ring-red-500', 'scale-105');
+                    }, 2500);
+                }
+            }, 100);
+        }
+
+        // --- 8. Hero Quick Search Bar ---
+        function quickSearchProvince() {
+            const inputVal = document.getElementById('hero-search-input').value;
+            renderProvinceGrid(inputVal);
+        }
+
+        function executeHeroSearch() {
+            const inputVal = document.getElementById('hero-search-input').value;
+            renderProvinceGrid(inputVal);
+        }
+
+        // --- 9. Mobile Menu Toggle ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // --- 10. Smart Trip Planner Algorithm ---
+        function generateTripPlan(e) {
+            e.preventDefault();
+            const region = document.getElementById('plan-region').value;
+            const days = document.getElementById('plan-days').value;
+            const style = document.getElementById('plan-style').value;
+
+            const resultBox = document.getElementById('planner-result');
+            const resultTitle = document.getElementById('plan-result-title');
+            const resultContent = document.getElementById('plan-result-content');
+
+            // Pick sample provinces according to selected region
+            const sampleProvinces = provincesData.filter(p => p.region === region);
+            const prov1 = sampleProvinces[0] || provincesData[0];
+            const prov2 = sampleProvinces[1] || provincesData[1];
+
+            let titleText = currentLang === 'th' ? `ทริปแนะนำ ${days} วัน (${prov1.nameTh})` : `Recommended ${days}-Day Trip (${prov1.nameEn})`;
+            
+            let html = ``;
+            if (currentLang === 'th') {
+                html = `
+                    <p class="font-semibold text-blue-900">📍 จังหวัดหลัก: <span class="text-slate-800">${prov1.nameTh}</span> ${days > 1 ? `และ <span class="text-slate-800">${prov2.nameTh}</span>` : ''}</p>
+                    <div class="mt-2 space-y-2">
+                        <div class="p-3 bg-white rounded-xl border border-slate-200">
+                            <strong>Day 1 (ช่วงเช้า-บ่าย):</strong> แวะเช็คอินแลนด์มาร์คเด่นที่ <span class="text-red-600 font-medium">${prov1.spot}</span>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl border border-slate-200">
+                            <strong>มื้อเย็นลิ้มลองซิกเนเจอร์:</strong> ทาน <span class="text-blue-700 font-medium">${prov1.food}</span> ร้านท้องถิ่นชื่อดัง
+                        </div>
+                        ${days > 1 ? `
+                        <div class="p-3 bg-white rounded-xl border border-slate-200">
+                            <strong>Day 2 - 3:</strong> เดินทางต่อสู่ ${prov2.nameTh} เยี่ยมชม ${prov2.spot} และสัมผัสประเพณีท้องถิ่น (${prov2.fest})
+                        </div>` : ''}
+                    </div>
+                    <p class="text-xs text-slate-500 mt-3">* คำแนะนำปรับตามสไตล์ "${style}" เหมาะสำหรับการเดินทางพักผ่อนอย่างลงตัว</p>
+                `;
+            } else {
+                html = `
+                    <p class="font-semibold text-blue-900">📍 Primary Destinations: <span class="text-slate-800">${prov1.nameEn}</span> ${days > 1 ? `and <span class="text-slate-800">${prov2.nameEn}</span>` : ''}</p>
+                    <div class="mt-2 space-y-2">
+                        <div class="p-3 bg-white rounded-xl border border-slate-200">
+                            <strong>Day 1 (Morning-Afternoon):</strong> Check-in at <span class="text-red-600 font-medium">${prov1.spot}</span>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl border border-slate-200">
+                            <strong>Dinner Experience:</strong> Savor signature <span class="text-blue-700 font-medium">${prov1.food}</span> at local restaurants.
+                        </div>
+                        ${days > 1 ? `
+                        <div class="p-3 bg-white rounded-xl border border-slate-200">
+                            <strong>Day 2 - 3:</strong> Travel towards ${prov2.nameEn}, visit ${prov2.spot} and experience ${prov2.fest}.
+                        </div>` : ''}
+                    </div>
+                    <p class="text-xs text-slate-500 mt-3">* Customized based on your selected "${style}" style travel preference.</p>
+                `;
+            }
+
+            resultTitle.textContent = titleText;
+            resultContent.innerHTML = html;
+            resultBox.classList.remove('hidden');
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // --- 11. Initial Load Handler ---
+        window.onload = function() {
+            renderProvinceSelectOptions();
+            renderProvinceGrid();
+        };
+    </script>
+</body>
+</html>
